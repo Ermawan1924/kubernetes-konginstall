@@ -1,0 +1,25 @@
+USER-SUPPLIED VALUES:
+admin:
+  enabled: false
+enterprise:
+  enabled: false
+  license_secret: kong-enterprise-license
+env:
+  cluster_cert: /etc/secrets/kong-cluster-cert/tls.crt
+  cluster_cert_key: /etc/secrets/kong-cluster-cert/tls.key
+  cluster_control_plane: kong-cp-kong-cluster.kong-mawan.svc.cluster.local:8005
+  cluster_telemetry_endpoint: kong-cp-kong-clustertelemetry.kong-mawan.svc.cluster.local:8006
+  database: "off"
+  lua_ssl_trusted_certificate: /etc/secrets/kong-cluster-cert/tls.crt
+  role: data_plane
+image:
+  repository: kong/kong-gateway
+  tag: "3.7"
+ingressController:
+  enabled: false
+manager:
+  enabled: false
+proxy:
+  enabled: true
+secretVolumes:
+- kong-cluster-cert
